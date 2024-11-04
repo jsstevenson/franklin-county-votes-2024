@@ -5,6 +5,10 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 	attribution: "© OpenStreetMap contributors",
 }).addTo(map);
 
+const HEAT_COLORS = [
+  "#800026", "#BD0026", "#E31A1C", "#FC4E2A", "#FD8D3C", "#FEB24C", "#FED976", "#FFFFFF"
+];
+
 const loadJson = (filename) => {
 	return fetch(filename).then((response) => {
 		if (!response.ok) {
@@ -26,20 +30,20 @@ const addVoteFeatures = () => {
 
 			const colorByTotal = (count) => {
 				return count > 1000
-					? "#800026"
+					? HEAT_COLORS[0]
 					: count > 500
-						? "#BD0026"
+						? HEAT_COLORS[1]
 						: count > 200
-							? "#E31A1C"
+							? HEAT_COLORS[2]
 							: count > 100
-								? "#FC4E2A"
+								? HEAT_COLORS[3]
 								: count > 50
-									? "#FD8D3C"
+									? HEAT_COLORS[4]
 									: count > 20
-										? "#FEB24C"
+										? HEAT_COLORS[5]
 										: count > 10
-											? "#FED976"
-											: "#FFFFFF";
+											? HEAT_COLORS[6]
+											: HEAT_COLORS[7];
 			};
 
 			L.geoJSON(precinctShapes, {
