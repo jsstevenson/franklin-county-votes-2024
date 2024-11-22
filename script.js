@@ -6,7 +6,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const ABS_COLORS = [
-  "#800026", "#BD0026", "#E31A1C", "#FC4E2A", "#FD8D3C", "#FEB24C", "#FED976", "#FFFFFF"
+  "#347ABE", "#5D95CB", "#86AFD8", "#F68895", "#F26071", "#EE384C", "#FFFFFF"
 ];
 
 const loadJson = (filename) => {
@@ -60,7 +60,7 @@ const addVoteFeatures = () => {
 						color: "#3388FF",
 						weight: 1,
 						fillColor: colorByOctile(ratio),
-						fillOpacity: 0.6,
+						fillOpacity: 0.8,
 					};
 				},
 				onEachFeature: (feature, layer) => {
